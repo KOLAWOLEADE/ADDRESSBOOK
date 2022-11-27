@@ -133,6 +133,21 @@ function displayContactDetails(addressBookToDisplay) {
 }
 
 
+
+function showContact(contactId) {
+  const contact = addressBook.findContact(contactId);
+  $("#show-contact").show();
+  $(".first-name").html(contact.firstName);
+  $(".last-name").html(contact.lastName);
+  $(".phone-number").html(contact.phoneNumber);
+  let buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+}
+
+
+
+
 function attachContactListeners() {
   $("ul#contacts").on("click", "li", function() {
     showContact(this.id);

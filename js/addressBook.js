@@ -151,9 +151,19 @@ function showContact(contactId) {
 function attachContactListeners() {
   $("ul#contacts").on("click", "li", function() {
     showContact(this.id);
-    // console.log("The id of this <li> is " + this.id + ".");
+    
+  });
+
+  // to delete contact
+  
+  $("#buttons").on("click", ".deleteButton", function() {
+    addressBook.deleteContact(this.id);
+    $("#show-contact").hide();
+    displayContactDetails(addressBook);
   });
 }
+  
+
 
 $(document).ready(function() {
 
